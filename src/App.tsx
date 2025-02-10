@@ -13,8 +13,8 @@ interface Cartoon {
 const cartoons: Cartoon[] = [
   { image: "/images/cartoon1.jpg", correct: "Thundercats", options: ["Thundercats", "Masters of the Universe", "Teenage Mutant Ninja Turtles", "Voltron"] },
   { image: "/images/cartoon2.jpg", correct: "Gummi Bears", options: ["Care Bears", "Gummi Bears", "Trolls", "Fraggle Rock"] },
-  { image: "/images/cartoon3.jpg", correct: "Tailspin", options: ["DuckTales", "Darkwing Duck", "Baloo's Jungle Book Adventures", "Tailspin"] },
-  { image: "/images/cartoon4.jpg", correct: "Dungeons and Dragons", options: ["Super Mario Adventures", "Dungeons and Dragons", "Monopoly: The Wizard's Edition", "He-Man and the Masters of the Universe"] },
+  { image: "/images/cartoon3.jpg", correct: "Tailspin", options: ["DuckTales", "Darkwing Duck", "Baloo's Jungle Book", "Tailspin"] },
+  { image: "/images/cartoon4.jpg", correct: "Dungeons and Dragons", options: ["Dragon's Lair", "Dungeons and Dragons", "BraveStarr", "He-Man"] },
   { image: "/images/cartoon5.jpg", correct: "M.A.S.K", options: ["M.A.S.K", "Knight Rider", "Centurions", "Jayce and the Wheeled Warriors"] },
   { image: "/images/cartoon6.jpg", correct: "Big Al", options: ["The Dukes of Hazzard", "Garfield and Friends", "Bobby's World", "Big Al"] },
   { image: "/images/cartoon7.jpg", correct: "Biker Mice From Mars", options: ["Biker Mice From Mars", "Street Sharks", "Mask Rider", "SilverHawks"] },
