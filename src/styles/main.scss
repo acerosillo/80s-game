@@ -37,6 +37,7 @@
     min-width: 100%;
     width: 100%;
     height: 100vh;
+    color: black;
   }
   
   .quiz-bg {
@@ -81,6 +82,7 @@
   h1 {
     font-size: 3.2em;
     line-height: 1.1;
+
   }
 
   .timer-left {
@@ -95,16 +97,49 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #eee;
     cursor: pointer;
     transition: border-color 0.25s;
+    color: black;
+
+    &:disabled {
+      background-color: #ddd;
+      color: #B7AEB8;
+      &:hover {
+        background-color: #ddd;
+      }
+    }
   }
   button:hover {
-    border-color: #646cff;
+    border-color: #dedede;
+    background-color: #ddd;
   }
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+  }
+
+  .nextButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &.answered {
+      background-color: #9FD4A3;
+      &:hover {
+        border-color: #CDEBC5;
+        background-color: #CDEBC5;
+      }
+    }
+
+    &.unanswered {
+      background-color: #F5E8C9;
+      &:hover {
+        border-color: #F9CF95;
+        background-color: #F5E8C9;
+      }
+    }
   }
   
   /* Light color scheme */

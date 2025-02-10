@@ -126,13 +126,25 @@ export default function App() {
               </div>
             )}
 
-            <button 
-              onClick={nextQuestion} 
-              disabled={!answerSelected} 
-              style={{ marginTop: "20px", padding: "10px 20px", fontSize: "16px", cursor: answerSelected ? "pointer" : "not-allowed" }}
-            >
-              Next Question
-            </button>
+{timeLeft === 0 && (
+  <button 
+    onClick={nextQuestion} 
+    className="nextButton unanswered"
+  >
+    Out of Time, Next
+  </button>
+)}
+
+{answerSelected && timeLeft > 0 && (
+  <button 
+    onClick={nextQuestion} 
+    className="nextButton answered"
+  >
+    Proceed
+  </button>
+)}
+
+
           </>
         ) : (
           <Results 
