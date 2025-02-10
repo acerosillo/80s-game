@@ -23,6 +23,42 @@ const cartoons: Cartoon[] = [
   { image: "/images/cartoon10.jpg", correct: "Darkwing Duck", options: ["DuckTales", "Chip 'n Dale", "Animaniacs", "Darkwing Duck"] }
 ];
 
+const CircleCountdown = ({ timeLeft }: { timeLeft: number }) => {
+  const circleSize = 30; // Size of the circle
+  const strokeWidth = 10; // Width of the wedges
+  const radius = (circleSize - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
+
+  // Calculate the offset based on timeLeft and total time (5 seconds)
+  const offset = circumference - (timeLeft / 5) * circumference;
+
+  return (
+    <svg width={circleSize} height={circleSize}>
+      <circle
+        cx={circleSize / 2}
+        cy={circleSize / 2}
+        r={radius}
+        stroke="#ddd"
+        strokeWidth={strokeWidth}
+        fill="none"
+      />
+      <circle
+        cx={circleSize / 2}
+        cy={circleSize / 2}
+        r={radius}
+        stroke="green"
+        strokeWidth={strokeWidth}
+        fill="none"
+        strokeDasharray={circumference}
+        strokeDashoffset={offset}
+        transform={`rotate(-90 ${circleSize / 2} ${circleSize / 2})`}
+        className="countdown-circle"
+      />
+    </svg>
+  );
+};
+
+
 export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -100,10 +136,13 @@ export default function App() {
   return (
     <div className="quiz-bg">
       <div className="quiz-wrapper">
-        <h1>Guess the Cartoon!</h1>
+        <h1>80s Cartoon Trivia:</h1>
+        <h3>How Well Do You Know Your Animated Classics?</h3>
+
+
         {!gameOver && (
           <div className="timer-left">
-            Time Left: {timeLeft}s
+            <CircleCountdown timeLeft={timeLeft} />
           </div>
         )}
 

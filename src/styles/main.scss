@@ -80,14 +80,31 @@
   }
   
   h1 {
-    font-size: 3.2em;
+    font-size: 2em;
     line-height: 1.1;
 
   }
 
+  .countdown-circle {
+    transition: stroke-dashoffset 1s ease; /* Adds smooth transition */
+  }
+  svg {
+    transform: rotate(-90deg); /* Rotate the circle to start from the top */
+    transition: transform 1s ease; /* Smooth rotation if necessary */
+  }
+
   .timer-left {
-    font-size: 2em;
+    font-size: 1em;
     line-height: 1.1;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    text-align: center;
   }
   
   button {
@@ -142,6 +159,16 @@
     }
   }
   
+
+
+  
+  svg {
+    transform: rotate(-90deg);
+  }
+  
+
+
+
   /* Light color scheme */
   @media (prefers-color-scheme: light) {
     :root {
@@ -169,6 +196,8 @@
     .timer-left {
         font-size: 1.4em;
         line-height: 1.1;
+        top: 141px;
+        right: 65px;
       }
   }
   
