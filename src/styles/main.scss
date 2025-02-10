@@ -62,7 +62,7 @@
   .quiz-wrapper {
     margin: 50px auto 0;
     text-align: center;
-    max-width: 350px;
+    max-width: 900px;
     width: 100%;
     z-index: 2;
     position: relative;
@@ -120,6 +120,10 @@
     h1 {
       font-size: 2em; /* Smaller font size for mobile */
     }
+
+    .quiz-wrapper {
+        max-width: 350px;
+      }
 
     .timer-left {
         font-size: 1.4em;
