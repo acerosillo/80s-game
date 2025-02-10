@@ -29,7 +29,7 @@ export default function App() {
   const [disableOptions, setDisableOptions] = useState(false);
 
   // Load the wrong.mp3 sound
-  const wrongSound = new Audio("./src/assets/sounds/wrong.mp3");
+  const wrongSound = new Audio("/sounds/wrong.mp3");
 
   const checkAnswer = (selected: string): void => {
     if (!disableOptions) {
