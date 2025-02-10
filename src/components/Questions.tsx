@@ -8,9 +8,10 @@ interface QuestionProps {
     options: string[];
   };
   checkAnswer: (option: string) => void;
+  disabled: boolean; // Add disabled prop
 }
 
-const Questions: React.FC<QuestionProps> = ({ question, checkAnswer }) => {
+const Questions: React.FC<QuestionProps> = ({ question, checkAnswer, disabled }) => {
   return (
     <div>
       <p>Question {question.index + 1} of {question.total}</p>
@@ -24,7 +25,8 @@ const Questions: React.FC<QuestionProps> = ({ question, checkAnswer }) => {
           <button
             key={index}
             onClick={() => checkAnswer(option)}
-            style={{ padding: "10px", margin: "5px", cursor: "pointer" }}
+            disabled={disabled} // Disable buttons when disabled is true
+            style={{ padding: "10px", margin: "5px", cursor: disabled ? "not-allowed" : "pointer" }}
           >
             {option}
           </button>
