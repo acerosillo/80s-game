@@ -30,7 +30,7 @@ const CircleCountdown = ({ timeLeft }: { timeLeft: number }) => {
   const circumference = 2 * Math.PI * radius;
 
   // Calculate the offset based on timeLeft and total time (5 seconds)
-  const offset = circumference - (timeLeft / 5) * circumference;
+  const offset = circumference - (timeLeft / 10) * circumference;
 
   return (
     <svg width={circleSize} height={circleSize}>
@@ -65,7 +65,7 @@ export default function App() {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [gameOver, setGameOver] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(7);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answerSelected, setAnswerSelected] = useState(false);
   const [message, setMessage] = useState("");
@@ -96,7 +96,7 @@ export default function App() {
 
     if (currentQuestion + 1 < cartoons.length) {
       setCurrentQuestion(currentQuestion + 1);
-      setTimeLeft(5); // Reset timer
+      setTimeLeft(10); // Reset timer
     } else {
       setGameOver(true);
     }
@@ -104,7 +104,7 @@ export default function App() {
 
   useEffect(() => {
     if (!gameOver) {
-      setTimeLeft(5);
+      setTimeLeft(10);
       setDisableOptions(false);
 
       const countdown = setInterval(() => {
@@ -136,9 +136,6 @@ export default function App() {
   return (
     <div className="quiz-bg">
       <div className="quiz-wrapper">
-        <h1>80s Cartoon Trivia:</h1>
-        <h3>How Well Do You Know Your Animated Classics?</h3>
-
 
         {!gameOver && (
           <div className="timer-left">
@@ -200,7 +197,7 @@ export default function App() {
               setAnswerSelected(false);
               setMessage("");
               setDisableOptions(false);
-              setTimeLeft(5);
+              setTimeLeft(10);
             }}
           />
         )}

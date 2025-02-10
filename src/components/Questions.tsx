@@ -14,7 +14,7 @@ interface QuestionProps {
 const Questions: React.FC<QuestionProps> = ({ question, checkAnswer, disabled }) => {
   return (
     <div>
-      <p>Question {question.index + 1} of {question.total}</p>
+      <p>Image {question.index + 1} of {question.total}</p>
       <img
         src={question.image}
         alt="Cartoon"
