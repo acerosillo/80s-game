@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Questions from "./components/Questions";
 import Results from "./components/Results";
-import './App.css'
+
+import './styles/main.scss';
 
 interface Cartoon {
   image: string;
@@ -26,6 +27,9 @@ export default function App() {
   const [answerSelected, setAnswerSelected] = useState(false);
   const [message, setMessage] = useState("");
   const [disableOptions, setDisableOptions] = useState(false);
+
+  // Load the wrong.mp3 sound
+  const wrongSound = new Audio("./src/assets/sounds/wrong.mp3");
 
   const checkAnswer = (selected: string): void => {
     if (!disableOptions) {
@@ -65,6 +69,13 @@ export default function App() {
           if (prev <= 1) {
             clearInterval(countdown);
             setDisableOptions(true);
+
+            // Ensure sound is loaded and play after the timer expires
+            wrongSound.load();  // Preload the sound before playing
+            wrongSound.play().catch(() => {
+              console.log("Audio play failed");
+            });
+
             // Auto select a wrong answer
             const wrongAnswers = cartoons[currentQuestion].options.filter(option => option !== cartoons[currentQuestion].correct);
             setSelectedAnswer(wrongAnswers[Math.floor(Math.random() * wrongAnswers.length)]);
@@ -80,60 +91,62 @@ export default function App() {
   }, [currentQuestion, gameOver]);
 
   return (
-    <div style={{ textAlign: "center", fontFamily: "Arial, sans-serif" }}>
-      <h1>Guess the Cartoon!</h1>
-      {!gameOver && (
-        <div style={{ fontSize: "30px", fontWeight: "bold", marginBottom: "20px" }}>
-          Time Left: {timeLeft}s
-        </div>
-      )}
+    <div className="quiz-bg">
+      <div className="quiz-wrapper">
+        <h1>Guess the Cartoon!</h1>
+        {!gameOver && (
+          <div className="timer-left">
+            Time Left: {timeLeft}s
+          </div>
+        )}
 
-      {!gameOver ? (
-        <>
-          <Questions 
-            question={{
-              index: currentQuestion,
-              total: cartoons.length,
-              image: cartoons[currentQuestion].image,
-              options: cartoons[currentQuestion].options
+        {!gameOver ? (
+          <>
+            <Questions 
+              question={{
+                index: currentQuestion,
+                total: cartoons.length,
+                image: cartoons[currentQuestion].image,
+                options: cartoons[currentQuestion].options
+              }}
+              checkAnswer={checkAnswer}
+              disabled={disableOptions} // Disable options when time runs out
+            />
+
+            {message && (
+              <div style={{ color: "red", marginTop: "10px" }}>
+                {message}
+              </div>
+            )}
+
+            <button 
+              onClick={nextQuestion} 
+              disabled={!answerSelected} 
+              style={{ marginTop: "20px", padding: "10px 20px", fontSize: "16px", cursor: answerSelected ? "pointer" : "not-allowed" }}
+            >
+              Next Question
+            </button>
+          </>
+        ) : (
+          <Results 
+            score={score} 
+            correctAnswers={correctAnswers} 
+            incorrectAnswers={incorrectAnswers} 
+            resetGame={() => {
+              setCurrentQuestion(0);
+              setScore(0);
+              setCorrectAnswers(0);
+              setIncorrectAnswers(0);
+              setGameOver(false);
+              setSelectedAnswer(null);
+              setAnswerSelected(false);
+              setMessage("");
+              setDisableOptions(false);
+              setTimeLeft(5);
             }}
-            checkAnswer={checkAnswer}
-            disabled={disableOptions} // Disable options when time runs out
           />
-
-          {message && (
-            <div style={{ color: "red", marginTop: "10px" }}>
-              {message}
-            </div>
-          )}
-
-          <button 
-            onClick={nextQuestion} 
-            disabled={!answerSelected} 
-            style={{ marginTop: "20px", padding: "10px 20px", fontSize: "16px", cursor: answerSelected ? "pointer" : "not-allowed" }}
-          >
-            Next Question
-          </button>
-        </>
-      ) : (
-        <Results 
-          score={score} 
-          correctAnswers={correctAnswers} 
-          incorrectAnswers={incorrectAnswers} 
-          resetGame={() => {
-            setCurrentQuestion(0);
-            setScore(0);
-            setCorrectAnswers(0);
-            setIncorrectAnswers(0);
-            setGameOver(false);
-            setSelectedAnswer(null);
-            setAnswerSelected(false);
-            setMessage("");
-            setDisableOptions(false);
-            setTimeLeft(5);
-          }}
-        />
-      )}
+        )}
+      </div>
     </div>
   );
 }
