@@ -18,7 +18,7 @@ const Questions: React.FC<QuestionProps> = ({ question, checkAnswer, disabled })
       <img
         src={question.image}
         alt="Cartoon"
-        style={{ width: "300px", border: "2px solid black" }}
+        className="image-quiz"
       />
       <div>
         {question.options.map((option, index) => (
