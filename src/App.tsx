@@ -18,7 +18,9 @@ const cartoons: Cartoon[] = [
   { image: "/images/cartoon5.jpg", correct: "M.A.S.K", options: ["M.A.S.K", "Knight Rider", "Centurions", "Jayce and the Wheeled Warriors"] },
   { image: "/images/cartoon6.jpg", correct: "Big Al", options: ["The Dukes of Hazzard", "Garfield and Friends", "Bobby's World", "Big Al"] },
   { image: "/images/cartoon7.jpg", correct: "Biker Mice From Mars", options: ["Biker Mice From Mars", "Street Sharks", "Mask Rider", "SilverHawks"] },
-  { image: "/images/cartoon8.jpg", correct: "Mighty Mouse", options: ["Supermouse", "Mighty Mouse", "Batfink", "Powerpuff Girls"] },
+  { image: "/images/cartoon8.jpg", correct: "Mighty Mouse", options: ["Super Mouse", "Mighty Mouse", "Batfink", "Powerpuff Girls"] },
+  { image: "/images/cartoon9.jpg", correct: "Centurions", options: ["Robotech", "Power Rangers", "Centurions", "Voltron"] },
+  { image: "/images/cartoon10.jpg", correct: "Darkwing Duck", options: ["DuckTales", "Chip 'n Dale", "Animaniacs", "Darkwing Duck"] }
 ];
 
 export default function App() {
@@ -34,7 +36,7 @@ export default function App() {
   const [disableOptions, setDisableOptions] = useState(false);
 
   // Load the wrong.mp3 sound
-  const wrongSound = new Audio("/assets/sounds/wrong.mp3");
+  const wrongSound = new Audio("/sounds/wrong.mp3");
 
   const checkAnswer = (selected: string): void => {
     if (!disableOptions) {
