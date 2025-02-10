@@ -16,11 +16,16 @@ const cartoons: Cartoon[] = [
   { image: "/images/cartoon3.jpg", correct: "Tailspin", options: ["DuckTales", "Darkwing Duck", "Baloo's Jungle Book", "Tailspin"] },
   { image: "/images/cartoon4.jpg", correct: "Dungeons and Dragons", options: ["Dragon's Lair", "Dungeons and Dragons", "BraveStarr", "He-Man"] },
   { image: "/images/cartoon5.jpg", correct: "M.A.S.K", options: ["M.A.S.K", "Knight Rider", "Centurions", "Jayce and the Wheeled Warriors"] },
-  { image: "/images/cartoon6.jpg", correct: "Big Al", options: ["The Dukes of Hazzard", "Garfield and Friends", "Bobby's World", "Big Al"] },
+  { image: "/images/cartoon6.jpg", correct: "Big Al", options: ["Rude Dog & da Dweebs", "Garfield", "A-Team", "Fat Albert"] },
   { image: "/images/cartoon7.jpg", correct: "Biker Mice From Mars", options: ["Biker Mice From Mars", "Street Sharks", "Mask Rider", "SilverHawks"] },
   { image: "/images/cartoon8.jpg", correct: "Mighty Mouse", options: ["Super Mouse", "Mighty Mouse", "Batfink", "Powerpuff Girls"] },
   { image: "/images/cartoon9.jpg", correct: "Centurions", options: ["Robotech", "Power Rangers", "Centurions", "Voltron"] },
-  { image: "/images/cartoon10.jpg", correct: "Darkwing Duck", options: ["DuckTales", "Chip 'n Dale", "Animaniacs", "Darkwing Duck"] }
+  { image: "/images/cartoon10.jpg", correct: "Darkwing Duck", options: ["DuckTales", "Chip 'n Dale", "Animaniacs", "Darkwing Duck"] },
+  { image: "/images/cartoon11.jpg", correct: "BraveStarr", options: ["BraveStarr", "Voltron", "Captain Planet", "Silverhawks"] },
+  { image: "/images/cartoon12.jpg", correct: "Jestsons", options: ["Top Cat", "Yogi Bear", "The Flintstones", "Jestsons"] },
+  { image: "/images/cartoon13.jpg", correct: "Denver the last Dinosaur", options: ["Dink, the Little Dinosaur", "Denver the last Dinosaur", "Dino Babies", "Dino Ranch"] },
+  { image: "/images/cartoon14.jpg", correct: "SuperTed", options: ["Super Ted", "Super Tato", "Terrahawks", "Rupert the Bear"] },
+  { image: "/images/cartoon15.jpg", correct: "Danger Mouse", options: ["The Raccoons", "Roobarb", "Danger Mouse", "Babar"] }
 ];
 
 const CircleCountdown = ({ timeLeft }: { timeLeft: number }) => {

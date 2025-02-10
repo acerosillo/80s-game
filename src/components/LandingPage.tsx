@@ -18,7 +18,7 @@ export default function LandingPage() {
           <ul>
             <li>You have 10 seconds to guess the correct answer</li>
             <li>You have to click proceed to confirm answer</li>
-            <li>You will have 10 images to complete.</li>
+            <li>You will have 15 images to complete.</li>
           </ul>
 
           <p>Good Luck!!</p>
