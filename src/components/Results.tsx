@@ -11,10 +11,10 @@ const Results: React.FC<ResultsProps> = ({ correctAnswers, incorrectAnswers, res
   const totalQuestions = correctAnswers + incorrectAnswers;
 
   return (
-    <div>
+    <div className="results-wrapper">
       <h2>Game Over</h2>
       {/* <p>Final Score: {score}</p> */}
-      <p>Correct Answers: {correctAnswers} / {totalQuestions}</p>
+      <p>You scored : {correctAnswers} / {totalQuestions}</p>
       {/* <p>Incorrect Answers: {incorrectAnswers}</p> */}
       <button onClick={resetGame} style={{ padding: "10px", marginTop: "10px", cursor: "pointer" }}>
         Play Again

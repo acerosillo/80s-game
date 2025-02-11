@@ -14,12 +14,15 @@ interface QuestionProps {
 const Questions: React.FC<QuestionProps> = ({ question, checkAnswer, disabled }) => {
   return (
     <div className="options-list">
-      <p>Image {question.index + 1} of {question.total}</p>
+      
       <img
         src={question.image}
         alt="Cartoon"
         className="image-quiz"
       />
+
+      <p><small><strong>Image {question.index + 1} of {question.total}</strong></small></p>
+
       <div>
         {question.options.map((option, index) => (
           <button

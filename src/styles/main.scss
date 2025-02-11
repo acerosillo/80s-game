@@ -29,7 +29,7 @@
   }
   
   body {
-    padding: 0;
+    padding: 30px 0;
     margin: 0;
     display: block;
     place-items: unset;
@@ -58,16 +58,16 @@
   }
   
   .landing-page {
-    margin: 20px auto 0;
+    margin: 0px auto 0;
     text-align: center;
-    max-width: 900px;
+    max-width: 700px;
     width: 100%;
     z-index: 2;
     position: relative;
     background-color: white;
     padding: 10px;
     border-radius: 25px;
-    padding-bottom: 40px;
+    padding: 40px;
   }
 
   .landing-rules {
@@ -92,6 +92,9 @@
     object-fit: contain;
   }
   
+  .results-wrapper {
+    text-align: center;
+  }
   h1 {
     font-size: 2em;
     line-height: 1.1;
