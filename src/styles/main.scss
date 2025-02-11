@@ -208,6 +208,15 @@
   
   /* Media query for mobile screens */
   @media (max-width: 768px) {
+
+    button {
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 0.2em 0.5em;
+      font-size: 0.9em;
+      font-weight: 600;
+    }
+
     h1 {
       font-size: 2em; /* Smaller font size for mobile */
     }
@@ -217,11 +226,15 @@
         max-width: 350px;
       }
 
+      .landing-page {
+          width: 75%;
+        }
+        
     .timer-left {
         font-size: 1.4em;
         line-height: 1.1;
-        top: -20px;
-        right: 0px;
+        top: -40px;
+        right: -45px;
       }
 
       .image-quiz {
